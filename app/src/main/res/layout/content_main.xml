@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main" tools:context=".MainActivity">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src = "@drawable/flight2"
+        android:scaleType = "centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation = "vertical"
+        android:padding = "16sp"
+        >
+
+        <!-- Top three buttons-->
+        <LinearLayout
+            android:orientation = "horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- Light-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src = "@drawable/light2"
+                android:paddingBottom = "8sp"
+                />
+
+            <!-- Body Temp-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src = "@drawable/temperature"
+                android:paddingBottom = "8sp"/>
+
+            <!-- Heart Rate-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src = "@drawable/heart"/>
+
+        </LinearLayout>
+
+
+        <!-- Current Trip-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight = "1"
+            android:orientation = "vertical"
+            android:background="#CC0099FF"
+            >
+
+            <!-- Exact Trip-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:text = "Jet Lag Prevention"
+                android:textAllCaps = "true"
+                android:textSize = "24sp"
+                android:layout_gravity = "center_horizontal"
+                />
+
+
+
+
+
+
+            <!-- Sleep...-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight = "1"
+                >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text = "Go to Sleep at "
+                android:layout_gravity = "left"
+                android:id = "@+id/sleepTimeText"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:id = "@+id/wakeTime"
+                    android:text = "@string/wakeTime">
+
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text = "Wake up at "
+                    android:layout_gravity = "left"
+                    android:id = "@+id/wakeTimeText"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight = "1"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Go to sleep at"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:id = "@+id/sleepTime"
+                    android:text = "@string/sleepTime">
+
+
+                </TextView>
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+        <!-- Miscellaneous-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight = "2"
+            android:orientation = "vertical">
+
+            <!-- Add Trip-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight = "0"
+                android:text = "Input how many days left until your trip below" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text = "7"
+                android:id = "@+id/daysLeft"
+                android:inputType = "number"
+                android:imeActionLabel = "Set Days Left"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight = "0"
+                android:text = "Input time difference below and pick hours ahead or hours behind" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation = "horizontal">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text = "5"
+                android:layout_weight = "2"
+                android:inputType = "number"
+                android:id = "@+id/timeChange"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight = "1"
+                    android:text = "Ahead"
+                    android:id = "@+id/ahead"
+                    android:onClick = "setTimeZoneAhead"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight = "1"
+                    android:text = "Behind"
+                    android:id = "@+id/behind"
+                    android:onClick = "setTimeZoneBehind"/>
+
+            </LinearLayout>
+
+            <!-- Connect Bluetooth-->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text = "Send Light Information"
+                android:id = "@+id/sendLight"
+                android:onClick = "sendLight"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text = "Body Temperature Information"
+                android:id = "@+id/receiveBodyTempInfo"
+                android:onClick = "goToBodyInfo"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+</RelativeLayout>
